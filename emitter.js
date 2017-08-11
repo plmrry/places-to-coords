@@ -69,4 +69,30 @@ Emitter['combineEmitters'] = function combine(input) {
   return outEmitter;
 }
 
-module.exports = Emitter;
+const throttleWith = (with$, max) => {
+  return input$ => {
+    const output$ = Emitter();
+    const pending = [];
+    let active = 0;
+    const check = () => {
+      if (active < max) {
+        const next = pending.pop();
+        if (!next) return;
+        const { err, data } = next;
+        active++;
+        output$.callCallbacks(err, data);
+      }
+    }
+    input$.addCallback((err, data) => {
+      pending.push({ err, data })
+      check();
+    });
+    with$.addCallback((err, data) => {
+      active--;
+      check();
+    });
+    return output$;
+  }
+}
+
+module.exports = { Emitter, throttleWith };
