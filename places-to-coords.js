@@ -43,12 +43,13 @@ geocodeRequest$
     })
   });
 
-const fromArray = places => {
+const fromArray = (places, callback = (err, data) => {}) => {
   console.log('INPUT\n', require('util').inspect(places, { colors: true }))
   const out = [];
   return new Promise((resolve, reject) => {
     geocodeResponse$
       .addCallback((err, data) => {
+        callback(err, data);
         if (err) return reject(err);
         out.push(data);
         if (out.length === places.length) {
