@@ -8,6 +8,12 @@ Create a `.env` file and add a `GOOGLE_MAPS_API_KEY` variable:
 GOOGLE_MAPS_API_KEY=AIz...ezI
 ```
 
+Install stuff:
+
+```bash
+yarn
+```
+
 ## Usage
 
 ```bash
