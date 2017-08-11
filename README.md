@@ -49,7 +49,7 @@ A Promise is also returned once all the results are collected:
 
 ```javascript
 const placesToCoords = require('./places-to-coords');
-const placeNames = [ 'Germany', 'Arlington, VA', ];
+const placeNames = [ 'Germany', 'Arlington, VA' ];
 placesToCoords(placeNames)
   .then(results => {
     console.log("We're all done here.", results);
