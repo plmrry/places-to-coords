@@ -1,4 +1,10 @@
 {
+  "name": "places-to-coords",
+  "version": "0.1.0",
+  "author": {
+    "name": "Paul Murray",
+    "email": "paul.murray@nytimes.com"
+  },
   "dependencies": {
     "@google/maps": "^0.4.3",
     "@types/core-js": "^0.9.42",
