@@ -28,11 +28,12 @@ The callback will be called **every time** a response is received.
 
 ```javascript
 const placesToCoords = require('./places-to-coords');
-const placeNames = [ 'Germany', 'Arlington, VA', ];
-placesToCoords(placeNames, (err, data) => console.log('Got one', data));
+const placeNames = [ 'Germany', 'Arlington, VA' ];
+const callback = (err, data) => console.log('Got one.', data)
+placesToCoords(placeNames, callback);
 ```
 
-The callback will include a result of the form:
+The response data will look like this:
 
 ```javascript
 { 
@@ -44,11 +45,11 @@ The callback will include a result of the form:
 }
 ```
 
-A Promise will also be returned once all the results are returned:
+A Promise is also returned once all the results are collected:
 
 ```javascript
 const placesToCoords = require('./places-to-coords');
-const placeNames = [ 'Germany', 'Arlington, VA', ];
+const placeNames = [ 'Germany', 'Arlington, VA' ];
 placesToCoords(placeNames)
   .then(results => {
     console.log("We're all done here.", results);
