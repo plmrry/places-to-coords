@@ -11,7 +11,7 @@ GOOGLE_MAPS_API_KEY=AIz...ezI
 Install stuff:
 
 ```bash
-yarn
+npm install
 ```
 
 ## Example
